@@ -7,17 +7,33 @@ Returns: a List of integers
 #check that array is longer than 1
 #multiply each value by all other values
 #divide the result by value of the index
-def product_of_all_other_numbers(arr):
+# def product_of_all_other_numbers(arr):
     
-    if len(arr) < 1:
-        return -1
+#     if len(arr) < 1:
+#         return -1
 
-    p = 1 #this is a starting point
+#     p = 1 #this is a starting point
 
-    for n in arr:
-        p *= n
+#     for n in arr:
+#         p *= n
 
-    return [p // n for n in arr]
+#     return [p // n for n in arr]
+import math
+def product_of_all_other_numbers(arr):
+    index = 0
+    result_arr = []
+    while_arr = []
+    while index <= len(arr) - 1:
+        while_arr = arr
+        i = while_arr[index]
+        while_arr.remove(while_arr[index])
+        product = math.prod(while_arr)
+        while_arr.insert(index, i)
+        result_arr.append(product)
+        index += 1
+    return result_arr
+
+
 
 
 
@@ -29,4 +45,4 @@ if __name__ == '__main__':
 
     print(f"Output of product_of_all_other_numbers: {product_of_all_other_numbers(arr)}")
 
-[2*3*4*5, 1*3*4*5, 1*2*4*5, 1*2*3*5, 1*2*3*4]
+# [2*3*4*5, 1*3*4*5, 1*2*4*5, 1*2*3*5, 1*2*3*4]
